@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+<ModulePrefs title="Tube Status"
+             directory_title="London Underground Tube Status"
+             render_inline="never"
+             description = "Display the current status of the London Underground"
+             author = "Allen Hutchison"
+             author_email = "allen.hutchison+tube_ig_module@gmail.com"
+             author_affiliation = "Hutchison.org"
+             author_location = "London, UK"
+             screenshot = "http://www.hutchison.org/tube_module/tube_screenshot.jpg"
+             scaling = "true"
+             scrolling = "false"
+/>
+
+<Content type="html"><![CDATA[
+<script type="text/javascript" src="http://www.hutchison.org/flickr_module/tinyxmldom.js"></script>
+<script type="text/javascript">
+
+/* This code is based on the Mac OS X London Tube Widget found at http://bremford.org/widgets/tube/index.html
+   Thanks to the author for allowing me to port his code to a google gadget.
+*/
+
+var dataUrl = "http://bremford.org/widgets/tube/tube.xml?rand=" + (new Date().getTime());
+var lines = [ "bakerloo", "central", "circle", "district", "eastlondon", "hammersmithandcity", "jubilee", "metropolitan", "northern", "piccadilly", "victoria", "waterlooandcity" ];
+
+function xmlError (e) {
+	alert(e);
+}
+
+function parseData(root) {
+    var objDom = new XMLDoc(root, xmlError);
+
+    for (var i=0;i<lines.length;i++) {
+        _gel(lines[i]+".status").innerHTML = "Checking...";
+
+    }
+
+    var reslines = objDom.docNode.getElements("line");
+
+    for (var i=0; i<reslines.length; i++) {
+        var name = reslines[i].getAttribute("name");
+        var status = reslines[i].getAttribute("status");
+        var message = reslines[i].getText()
+        var time = reslines[i].getAttribute("time");
+
+        if (_gel(name+".status")!=null) {
+            var element = _gel(name+".status");
+            if (status.toLowerCase()=="severe delays") {
+                status = "<span class='severe'>"+status+"</span>";
+            } else if (status.indexOf("uspended")>=0) {
+                status = "<span class='suspended'>"+status+"</span>";
+            } else if (status.toLowerCase()=="minor delays") {
+                status = "<span class='minor'>"+status+"</span>";
+            }
+            element.innerHTML = status;
+	    if (message) {
+	      element.onmouseover = new Function('showMessage("' + message + '")');
+	    } else {
+	      element.onmouseover = new Function('hideMessage()');
+	   }
+        }
+    }
+}
+
+function showMessage (text) {
+  var msg =  _gel("message__MODULE_ID__");
+  msg.innerHTML = text;
+  msg.style.display = "block";
+}
+
+function hideMessage () {
+  var msg = _gel("message__MODULE_ID__");
+  msg.style.display = "none"
+}
+
+function getData() {
+	_IG_FetchContent(dataUrl, parseData);
+}
+
+getData();
+
+</script>
+
+<style type="text/css">
+body                    { margin:0; padding:0; border:none }
+#front__MODULE_ID__                  { background:url('http://www.hutchison.org/tube_module/Default.png'); width:202px; height:212px; }
+table                   { font:10px "London Tube", sans-serif; border:none; margin:0; padding:0; width:200px; height:191px; position:absolute; left:1px; top:10px; border-collapse:collapse }
+td                      { margin:0px; padding:0px; border:none; vertical-align:center }
+.name                   { width:100px; color:white; padding-left:3px }
+.status                 { padding-left:2px; color:#353C91 }
+#bakerloo		{ background-color: #AE6118}
+#central		{ background-color: #E41F1F}
+#circle			{ background-color: #F8D42D; color:#353C91}
+#district		{ background-color: #00A575}
+#eastlondon		{ background-color: #F2AD41; color:#353C91}
+#hammersmithandcity	{ background-color: #E899A8; color:#353C91}
+#jubilee		{ background-color: #8F989E}
+#metropolitan		{ background-color: #893267}
+#northern		{ background-color: #000000}
+#piccadilly		{ background-color: #0450A1}
+#victoria		{ background-color: #009FE0}
+#waterlooandcity	{ background-color: #70C3CE; color:#353C91}
+#dlr                    { background-color: #00BBB4; }
+
+#message__MODULE_ID__ { position:absolute; font:10px "London Tube", serif; padding:2px; border:thin solid black; background-color:#FEE; display:none; z-index:200; left:15px; width:200px; }
+.severe                 { color:#D60; }
+.suspended              { color:#F00; }
+.minor                  { color:#600; }
+
+#refresh__MODULE_ID__ {
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+</style>
+
+<div id="front__MODULE_ID__">
+<div id="message__MODULE_ID__"></div>
+<div id="refresh__MODULE_ID__">
+<a href="javascript:getData()">Refresh</a>
+</div>
+<table>
+  <tr>
+    <td class="name" id="bakerloo">Bakerloo</td>
+    <td class="status"  id="bakerloo.status">No Data</td>
+  </tr>
+  <tr>
+    <td class="name" id="central">Central</td>
+    <td class="status"  id="central.status">No Data</td>
+  </tr>
+  <tr>
+    <td class="name" id="circle">Circle</td>
+    <td class="status"  id="circle.status">No Data</td>
+  </tr>
+  <tr>
+    <td class="name" id="district">District</td>
+    <td class="status"  id="district.status">No Data</td>
+  </tr>
+  <tr>
+    <td class="name" id="eastlondon">East London</td>
+    <td class="status"  id="eastlondon.status">No Data</td>
+  </tr>
+  <tr>
+    <td class="name" id="hammersmithandcity">Hammersmith & City</td>
+    <td class="status"  id="hammersmithandcity.status">No Data</td>
+  </tr>
+  <tr>
+    <td class="name" id="jubilee">Jubilee</td>
+    <td class="status"  id="jubilee.status">No Data</td>
+  </tr>
+  <tr>
+    <td class="name" id="metropolitan">Metropolitan</td>
+    <td class="status"  id="metropolitan.status">No Data</td>
+  </tr>
+  <tr>
+    <td class="name" id="northern">Northern</td>
+    <td class="status"  id="northern.status">No Data</td>
+  </tr>
+  <tr>
+    <td class="name" id="piccadilly">Piccadilly</td>
+    <td class="status"  id="piccadilly.status">No Data</td>
+  </tr>
+  <tr>
+    <td class="name" id="victoria">Victoria</td>
+    <td class="status"  id="victoria.status">No Data</td>
+  </tr>
+  <tr>
+    <td class="name" id="waterlooandcity">Waterloo & City</td>
+    <td class="status"  id="waterlooandcity.status">No Data</td>
+  </tr>
+  <!--
+  <tr>
+    <td class="name" id="dlr">DLR</td>
+    <td class="status"  id="dlr.status">No Data</td>
+  </tr>
+  -->
+</table>
+</div>
+]]>
+</Content>
+</Module>
