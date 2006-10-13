@@ -84,7 +84,7 @@ getData();
 
 <style type="text/css">
 body                    { margin:0; padding:0; border:none }
-#front__MODULE_ID__                  { background:url('http://www.hutchison.org/tube_module/Default.png'); width:202px; height:212px; }
+#front__MODULE_ID__                  { background:url('http://tube-status-gadget.googlecode.com/svn/trunk/Default.png'); width:202px; height:212px; }
 table                   { font:10px "London Tube", sans-serif; border:none; margin:0; padding:0; width:200px; height:191px; position:absolute; left:1px; top:10px; border-collapse:collapse }
 td                      { margin:0px; padding:0px; border:none; vertical-align:center }
 .name                   { width:100px; color:white; padding-left:3px }
