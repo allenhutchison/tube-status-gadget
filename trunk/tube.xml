@@ -8,13 +8,13 @@
              author_email = "allen.hutchison+tube_ig_module@gmail.com"
              author_affiliation = "Hutchison.org"
              author_location = "London, UK"
-             screenshot = "http://www.hutchison.org/tube_module/tube_screenshot.jpg"
+             screenshot = "http://tube-status-gadget.googlecode.com/svn/trunk/tube_screenshot.jpg"
              scaling = "true"
              scrolling = "false"
 />
 
 <Content type="html"><![CDATA[
-<script type="text/javascript" src="http://www.hutchison.org/flickr_module/tinyxmldom.js"></script>
+<script type="text/javascript" src="http://http://tube-status-gadget.googlecode.com/svn/trunk/tinyxmldom.js"></script>
 <script type="text/javascript">
 
 /* This code is based on the Mac OS X London Tube Widget found at http://bremford.org/widgets/tube/index.html
@@ -84,7 +84,7 @@ getData();
 
 <style type="text/css">
 body                    { margin:0; padding:0; border:none }
-#front__MODULE_ID__                  { background:url('http://tube-status-gadget.googlecode.com/svn/trunk/Default.png'); width:202px; height:212px; }
+#front__MODULE_ID__                  { background:url('http://tube-status-gadget.googlecode.com/svn/trunk/background.png'); width:202px; height:212px; }
 table                   { font:10px "London Tube", sans-serif; border:none; margin:0; padding:0; width:200px; height:191px; position:absolute; left:1px; top:10px; border-collapse:collapse }
 td                      { margin:0px; padding:0px; border:none; vertical-align:center }
 .name                   { width:100px; color:white; padding-left:3px }
