@@ -14,7 +14,7 @@
 />
 
 <Content type="html"><![CDATA[
-<script type="text/javascript" src="http://http://tube-status-gadget.googlecode.com/svn/trunk/tinyxmldom.js"></script>
+<script type="text/javascript" src="http://tube-status-gadget.googlecode.com/svn/trunk/tinyxmldom.js"></script>
 <script type="text/javascript">
 
 /* This code is based on the Mac OS X London Tube Widget found at http://bremford.org/widgets/tube/index.html
