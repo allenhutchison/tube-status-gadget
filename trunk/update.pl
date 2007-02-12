@@ -10,8 +10,8 @@ my $in = join("\n",<>);
 my $xp = XML::XPath->new(xml => $in);
 my $nodeset = $xp->find('//div[@class="tubelines"]/div');
 foreach my $node ($nodeset->get_nodelist) {
-    my $line = $node->findvalue('.//span/@class');
-    my $status = $node->findvalue('./a//text()');
+    my $line = $node->findvalue('.//h3/span/@class');
+    my $status = $node->findvalue('./span//text()');
     $status =~ s/\s+/ /g;
     $status =~ s/delays/Delays/g;
     $status{$line} = $status;
