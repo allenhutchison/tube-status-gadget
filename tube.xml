@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-<ModulePrefs title="Tube Status"
+<ModulePrefs title="London Underground Tube Status"
              directory_title="London Underground Tube Status"
              render_inline="never"
              description = "Display the current status of the London Underground"
