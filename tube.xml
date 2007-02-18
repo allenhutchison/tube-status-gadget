@@ -22,7 +22,6 @@
 */
 
 var dataUrl = "http://bremford.org/widgets/tube/tube.xml?rand=" + (new Date().getTime());
-#var dataUrl = "http://www.hutchison.org/tube_module/tube_status.xml?rand=" + (new Date().getTime());
 var lines = [ "bakerloo", "central", "circle", "district", "eastlondon", "hammersmithandcity", "jubilee", "metropolitan", "northern", "piccadilly", "victoria", "waterlooandcity" ];
 
 function xmlError (e) {
