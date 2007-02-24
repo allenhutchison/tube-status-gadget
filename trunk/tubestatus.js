@@ -45,7 +45,7 @@ function parseData(root) {
 }
 
 function showMessage (text) {
-  var msg =  _gel("message__MODULE_ID__");
+  var msg =  _gel(msgWindow);
   alert("MSG is " + foo);
   msg.innerHTML = text;
   msg.style.display = "block";
@@ -53,11 +53,11 @@ function showMessage (text) {
 }
 
 function hideMessage () {
-  var msg = _gel("message__MODULE_ID__");
+  var msg = _gel(msgWindow);
   msg.style.display = "none"
 }
 
 function getData() {
-  alert('foo is' + foo);
+  alert('foo is' + msgWindow);
   _IG_FetchContent(dataUrl, parseData);
 }
