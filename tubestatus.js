@@ -36,10 +36,11 @@ function parseData(root) {
       }
       element.innerHTML = status;
       element.ts_message = message;
+      if (time) {
+        element.ts_message += ' (' + time + ')';
+      }
       if (message) {
-        if (time) {
-          message = message + ' (' + time + ')';
-        }
+        
         //element.onmouseover = new Function('showMessage("' + message + '")');
         //element.onmouseout = new Function('hideMessage()');
         element.addEventListener("mouseover", showMessage, false);
