@@ -46,7 +46,7 @@ function parseData(root) {
 
 function showMessage (text) {
   var msg =  _gel(msgWindow);
-  alert("MSG is " + foo);
+  alert('msg is ' + msg)
   msg.innerHTML = text;
   msg.style.display = "block";
 //      msg.style.top = event.y+30;
@@ -58,6 +58,5 @@ function hideMessage () {
 }
 
 function getData() {
-  alert('foo is' + msgWindow);
   _IG_FetchContent(dataUrl, parseData);
 }
