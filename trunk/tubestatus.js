@@ -55,7 +55,7 @@ function showMessage (e) {
   msg.innerHTML = element.ts_message;
   msg.style.display = "block";
   if (element.ts_name.toLowerCase() == 'victoria') {
-    msg.style.bottom = e.clientY+30;
+    msg.style.top = e.clientY-60;
   } else {
     msg.style.top = e.clientY+30;
   }
