@@ -14,7 +14,9 @@ function parseData(root) {
   var objDom = new XMLDoc(root, xmlError);
 
   for (var i=0;i<lines.length;i++) {
-    _gel(lines[i]+".status").innerHTML = "Checking...";
+    var element = _gel(lines[i]+".status");
+    element.innerHTML = "Checking...";
+    element.ts_index = i;
   }
 
   var reslines = objDom.docNode.getElements("line");
@@ -41,7 +43,6 @@ function parseData(root) {
       }
       element.ts_name = name;
       element.ts_status = status;
-      element.ts_index = i;
       if (element.ts_message) {        
         element.addEventListener("mouseover", showMessage, false);
         element.addEventListener("mouseout", hideMessage, false);
