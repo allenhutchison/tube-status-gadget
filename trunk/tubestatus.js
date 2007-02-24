@@ -36,9 +36,9 @@ function parseData(root) {
       }
       element.innerHTML = status;
       if (message) {
-        element.onmouseover = new Function('showMessage("' + message + '")');
+        //element.onmouseover = new Function('showMessage("' + message + '")');
+        element.onmouseover = new Function('showMessage("' + message + ' (' + time + ')")');
         element.onmouseout = new Function('hideMessage()');
-        //element.onmouseover = new Function("showMessage("' + message + ' (""+time+')\")");
       }
     }
   }
