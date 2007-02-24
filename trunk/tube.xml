@@ -18,6 +18,7 @@
 <script type="text/javascript" src="http://tube-status-gadget.googlecode.com/svn/trunk/tubestatus.js"></script>
 
 <script type="text/javascript">
+var foo = 'allen';
 getData();
 </script>
 

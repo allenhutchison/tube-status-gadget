@@ -10,8 +10,7 @@ function xmlError (e) {
   alert(e);
 }
 
-function parseData(root, foo) {
-  alert('foo is' + foo);
+function parseData(root) {
   var objDom = new XMLDoc(root, xmlError);
 
   for (var i=0;i<lines.length;i++) {
@@ -59,5 +58,6 @@ function hideMessage () {
 }
 
 function getData() {
-  _IG_FetchContent(dataUrl, parseData('allen'));
+  alert('foo is' + foo);
+  _IG_FetchContent(dataUrl, parseData);
 }
