@@ -49,7 +49,7 @@ function parseData(root) {
 }
 
 function showMessage (text) {
-  if !(text) {
+  if (!text) {
     text = "foobar"
   }
   var msg =  _gel(msgWindow);
