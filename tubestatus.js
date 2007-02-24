@@ -39,14 +39,19 @@ function parseData(root) {
         if (time) {
           message = message + ' (' + time + ')';
         }
-        element.onmouseover = new Function('showMessage("' + message + '")');
-        element.onmouseout = new Function('hideMessage()');
+        //element.onmouseover = new Function('showMessage("' + message + '")');
+        //element.onmouseout = new Function('hideMessage()');
+        element.addEventListener("mouseover", showMessage, false);
+        element.addEventListener("mouseout", hideMessage, false);
       }
     }
   }
 }
 
 function showMessage (text) {
+  if !(text) {
+    text = "foobar"
+  }
   var msg =  _gel(msgWindow);
   msg.innerHTML = text;
   msg.style.display = "block";
