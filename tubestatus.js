@@ -38,7 +38,7 @@ function parseData(root) {
       if (message) {
         var statusMessage = message;
         if (time) {
-          statusMessage = message + '(' + time ')';
+          statusMessage = message + '(' + time + ')';
         }
         element.onmouseover = new Function('showMessage("' + statusMessage + '")');          
         element.onmouseout = new Function('hideMessage()');
