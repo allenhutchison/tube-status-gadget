@@ -39,16 +39,15 @@ function parseData(root) {
         if (time) {
           message = message + ' (' + time + ')';
         }
-        element.onmouseover = new Function('showMessage("' + message + ',' + element.offsetTop + '")');          
+        element.onmouseover = new Function('showMessage("' + message + '")');
         element.onmouseout = new Function('hideMessage()');
       }
     }
   }
 }
 
-function showMessage (text, offset) {
+function showMessage (text) {
   var msg =  _gel(msgWindow);
-  alert('off is ' + offset);
   msg.innerHTML = text;
   msg.style.display = "block";
 //      msg.style.top = event.y+30;
