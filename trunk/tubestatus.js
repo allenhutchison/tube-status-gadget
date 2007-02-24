@@ -39,10 +39,9 @@ function parseData(root) {
       if (time) {
         element.ts_message += ' (' + time + ')';
       }
-      if (message) {
-        
-        //element.onmouseover = new Function('showMessage("' + message + '")');
-        //element.onmouseout = new Function('hideMessage()');
+      element.ts_name = name;
+      element.ts_status = status;
+      if (element.ts_message) {        
         element.addEventListener("mouseover", showMessage, false);
         element.addEventListener("mouseout", hideMessage, false);
       }
@@ -55,7 +54,11 @@ function showMessage (e) {
   var element = e.currentTarget || e.srcElement;
   msg.innerHTML = element.ts_message;
   msg.style.display = "block";
-  msg.style.top = e.clientY+30;
+  if (element.ts_name.toLowerCase() == 'victoria') {
+    msg.style.bottom = e.clientY+30;
+  } else {
+    msg.style.top = e.clientY+30;
+  }
 //      msg.style.top = event.y+30;
 }
 
