@@ -45,11 +45,13 @@ function parseData(root) {
   }
 }
 
-function showMessage (text) {
+function showMessage (event, text) {
   var msg =  _gel("message__MODULE_ID__");
   msg.innerHTML = text;
+  alert(event);
   //msg.style.display = "block";
   if (msg.style.display=="none") {
+      alert('in the if');
       msg.style.display = "block";
       msg.style.top = event.y+30;
   }
