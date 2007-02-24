@@ -48,8 +48,8 @@ function parseData(root) {
 
 function showMessage (text) {
   var msg =  _gel(msgWindow);
-  var lft, top = findPos(msg);
-  alert(top);
+  var lft = findPos(msg);
+  alert(lft);
   msg.innerHTML = text;
   msg.style.display = "block";
 //      msg.style.top = event.y+30;
