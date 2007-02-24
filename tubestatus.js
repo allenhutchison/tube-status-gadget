@@ -37,7 +37,7 @@ function parseData(root) {
       element.innerHTML = status;
       if (message) {
         //element.onmouseover = new Function('showMessage("' + message + '")');
-        element.onmouseover = new Function("showmessage(event,\""+message+" ("+time+")\")");
+        element.onmouseover = new Function("showMessage(event,\""+message+" ("+time+")\")");
       } else {
         element.onmouseover = new Function('hideMessage()');
       }
