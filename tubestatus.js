@@ -48,8 +48,7 @@ function parseData(root) {
 function showMessage (text) {
   var msg =  _gel("message__MODULE_ID__");
   msg.innerHTML = text;
-  if (msg.style.display=="none") {
-      msg.style.display = "block";
+  msg.style.display = "block";
 //      msg.style.top = event.y+30;
   }
 }
