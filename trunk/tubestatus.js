@@ -44,8 +44,13 @@ function parseData(root) {
       element.ts_name = name;
       element.ts_status = status;
       if (element.ts_message) {        
-        element.addEventListener("mouseover", showMessage, false);
-        element.addEventListener("mouseout", hideMessage, false);
+        if(element.addEventListener) {//DOM
+          element.addEventListener("mouseover", showMessage, false);
+          element.addEventListener("mouseout", hideMessage, false);
+        } else if (element.attachEvent) {//IE
+          element.attachEvent("onmouseover", showMessage);
+          element.attachEvent("onmouseout", hideMessage);
+        }
       }
     }
   }
