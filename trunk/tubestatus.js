@@ -46,6 +46,7 @@ function parseData(root) {
 }
 
 function showMessage (event, text) {
+  alert('showMessage');
   var msg =  _gel("message__MODULE_ID__");
   msg.innerHTML = text;
   alert(event);
