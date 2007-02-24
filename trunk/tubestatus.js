@@ -59,5 +59,5 @@ function hideMessage () {
 }
 
 function getData() {
-  _IG_FetchContent(dataUrl, parseData('allen')));
+  _IG_FetchContent(dataUrl, parseData('allen'));
 }
