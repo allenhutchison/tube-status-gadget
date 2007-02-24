@@ -48,8 +48,6 @@ function parseData(root) {
 
 function showMessage (text) {
   var msg =  _gel(msgWindow);
-  var lft = findPos(msg);
-  alert(lft);
   msg.innerHTML = text;
   msg.style.display = "block";
 //      msg.style.top = event.y+30;
@@ -58,19 +56,6 @@ function showMessage (text) {
 function hideMessage () {
   var msg = _gel(msgWindow);
   msg.style.display = "none"
-}
-
-function findPos(obj) {
-	var curleft = curtop = 0;
-	if (obj.offsetParent) {
-		curleft = obj.offsetLeft
-		curtop = obj.offsetTop
-		while (obj = obj.offsetParent) {
-			curleft += obj.offsetLeft
-			curtop += obj.offsetTop
-		}
-	}
-	return [curleft,curtop];
 }
 
 function getData() {
