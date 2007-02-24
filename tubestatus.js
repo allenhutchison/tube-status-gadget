@@ -37,7 +37,7 @@ function parseData(root) {
       element.innerHTML = status;
       if (message) {
         element.onmouseover = new Function('showMessage("' + message + '")');
-        element.onmouseout = new Function('hideMessage()');
+        //element.onmouseout = new Function('hideMessage()');
         //element.onmouseover = new Function("showMessage("' + message + ' (""+time+')\")");
       }
     }
@@ -46,6 +46,7 @@ function parseData(root) {
 
 function showMessage (text) {
   var msg =  _gel("message__MODULE_ID__");
+  alert("MSG is " + msg);
   msg.innerHTML = text;
   msg.style.display = "block";
 //      msg.style.top = event.y+30;
