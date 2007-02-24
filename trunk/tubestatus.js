@@ -41,6 +41,7 @@ function parseData(root) {
       }
       element.ts_name = name;
       element.ts_status = status;
+      element.ts_index = i;
       if (element.ts_message) {        
         element.addEventListener("mouseover", showMessage, false);
         element.addEventListener("mouseout", hideMessage, false);
@@ -54,12 +55,11 @@ function showMessage (e) {
   var element = e.currentTarget || e.srcElement;
   msg.innerHTML = element.ts_message;
   msg.style.display = "block";
-  if (element.ts_name.toLowerCase() == 'victoria' || 'piccadilly' || 'northern') {
+  if (element.ts_index > 5) {
     msg.style.top = e.clientY - 100;
   } else {
-    msg.style.top = e.clientY+30;
+    msg.style.top = e.clientY + 30;
   }
-//      msg.style.top = event.y+30;
 }
 
 function hideMessage () {
