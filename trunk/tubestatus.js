@@ -50,7 +50,6 @@ function showMessage (text) {
   msg.innerHTML = text;
   msg.style.display = "block";
 //      msg.style.top = event.y+30;
-  }
 }
 
 function hideMessage () {
