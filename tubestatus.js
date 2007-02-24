@@ -36,8 +36,8 @@ function parseData(root) {
       }
       element.innerHTML = status;
       if (message) {
-        //element.onmouseover = new Function('showMessage("' + message + '")');
-        element.onmouseover = new Function("showMessage(event,\""+message+" ("+time+")\")");
+        element.onmouseover = new Function('showMessage("' + message + '")');
+        //element.onmouseover = new Function("showMessage("' + message + ' (""+time+')\")");
       } else {
         element.onmouseover = new Function('hideMessage()');
       }
@@ -45,16 +45,12 @@ function parseData(root) {
   }
 }
 
-function showMessage (event, text) {
-  alert('showMessage');
+function showMessage (text) {
   var msg =  _gel("message__MODULE_ID__");
   msg.innerHTML = text;
-  alert(event);
-  //msg.style.display = "block";
   if (msg.style.display=="none") {
-      alert('in the if');
       msg.style.display = "block";
-      msg.style.top = event.y+30;
+//      msg.style.top = event.y+30;
   }
 }
 
