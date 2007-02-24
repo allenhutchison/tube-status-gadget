@@ -62,7 +62,7 @@ function showMessage (e) {
   msg.innerHTML = element.ts_message;
   msg.style.display = "block";
   if (element.ts_index > 5) {
-    msg.style.top = e.clientY - (msg.offsetHeight + 15);
+    msg.style.top = e.clientY - (msg.offsetHeight + 10);
   } else {
     msg.style.top = e.clientY + 15;
   }
@@ -71,8 +71,6 @@ function showMessage (e) {
 function hideMessage () {
   var msg = _gel(msgWindow);
   msg.style.display = "none"
-  msg.style.top = '';
-  msg.style.bottom = '';
 }
 
 function getData() {
