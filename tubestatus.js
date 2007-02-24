@@ -49,12 +49,10 @@ function parseData(root) {
   }
 }
 
-function showMessage (text) {
-  if (!text) {
-    text = "foobar"
-  }
+function showMessage (e) {
   var msg =  _gel(msgWindow);
-  msg.innerHTML = text;
+  var element = e.currentTarget || e.srcElement;
+  msg.innerHTML = element.ts_message;
   msg.style.display = "block";
 //      msg.style.top = event.y+30;
 }
