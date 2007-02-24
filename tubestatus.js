@@ -36,11 +36,10 @@ function parseData(root) {
       }
       element.innerHTML = status;
       if (message) {
-        var statusMessage = message;
         if (time) {
-          statusMessage = message + '(' + time + ')';
+          message = message + ' (' + time + ')';
         }
-        element.onmouseover = new Function('showMessage("' + statusMessage + '")');          
+        element.onmouseover = new Function('showMessage("' + message + '")');          
         element.onmouseout = new Function('hideMessage()');
       }
     }
@@ -49,6 +48,8 @@ function parseData(root) {
 
 function showMessage (text) {
   var msg =  _gel(msgWindow);
+  var offset = element.offsetTop;
+  alert('off is ' + offset);
   msg.innerHTML = text;
   msg.style.display = "block";
 //      msg.style.top = event.y+30;
