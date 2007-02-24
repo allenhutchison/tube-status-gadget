@@ -29,7 +29,7 @@ function parseData(root) {
       var element = _gel(name+".status");
       if (status.toLowerCase()=="severe delays") {
         status = "<span class='severe'>"+status+"</span>";
-      } else if (status.indexOf("uspended")>=0) {
+      } else if (status.indexOf("suspended")>=0) {
         status = "<span class='suspended'>"+status+"</span>";
       } else if (status.toLowerCase()=="minor delays") {
         status = "<span class='minor'>"+status+"</span>";
