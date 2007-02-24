@@ -54,6 +54,7 @@ function showMessage (e) {
   var element = e.currentTarget || e.srcElement;
   msg.innerHTML = element.ts_message;
   msg.style.display = "block";
+  msg.style.top = e.clientY+30;
 //      msg.style.top = event.y+30;
 }
 
