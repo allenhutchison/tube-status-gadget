@@ -59,7 +59,7 @@ function showMessage (e) {
   if (element.ts_index > 5) {
     msg.style.top = e.clientY - 100;
   } else {
-    msg.style.top = e.clientY + 30;
+    msg.style.top = e.clientY + 10;
   }
 }
 
