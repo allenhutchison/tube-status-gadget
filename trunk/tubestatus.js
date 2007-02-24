@@ -35,7 +35,7 @@ function parseData(root) {
         status = "<span class='minor'>"+status+"</span>";
       }
       element.innerHTML = status;
-      element.ts_message = message;
+      element.ts_message = i + message;
       if (time) {
         element.ts_message += ' (' + time + ')';
       }
