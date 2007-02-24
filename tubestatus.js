@@ -46,7 +46,7 @@ function parseData(root) {
 
 function showMessage (text) {
   var msg =  _gel("message__MODULE_ID__");
-  alert("MSG is " + msg);
+  alert("MSG is " + foo);
   msg.innerHTML = text;
   msg.style.display = "block";
 //      msg.style.top = event.y+30;
@@ -58,5 +58,6 @@ function hideMessage () {
 }
 
 function getData() {
+  var foo = 'allen'
   _IG_FetchContent(dataUrl, parseData);
 }
