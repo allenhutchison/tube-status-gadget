@@ -35,7 +35,7 @@ function parseData(root) {
         status = "<span class='minor'>"+status+"</span>";
       }
       element.innerHTML = status;
-      element.tubestatus.message = message;
+      element.ts_message = message;
       if (message) {
         if (time) {
           message = message + ' (' + time + ')';
