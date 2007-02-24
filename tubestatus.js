@@ -54,7 +54,7 @@ function showMessage (e) {
   var element = e.currentTarget || e.srcElement;
   msg.innerHTML = element.ts_message;
   msg.style.display = "block";
-  if (element.ts_name.toLowerCase() == 'victoria') {
+  if (element.ts_name.toLowerCase() == 'victoria' || 'piccadilly' || 'northern') {
     msg.style.top = e.clientY - 100;
   } else {
     msg.style.top = e.clientY+30;
