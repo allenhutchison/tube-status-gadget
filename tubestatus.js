@@ -57,15 +57,17 @@ function showMessage (e) {
   msg.innerHTML = element.ts_message;
   msg.style.display = "block";
   if (element.ts_index > 5) {
-    msg.style.top = e.clientY - 100;
+    msg.style.bottom = e.clientY - 15;
   } else {
-    msg.style.top = e.clientY + 10;
+    msg.style.top = e.clientY + 15;
   }
 }
 
 function hideMessage () {
   var msg = _gel(msgWindow);
   msg.style.display = "none"
+  msg.style.top = '';
+  msg.style.bottom = '';
 }
 
 function getData() {
