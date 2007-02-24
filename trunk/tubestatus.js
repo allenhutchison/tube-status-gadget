@@ -57,7 +57,7 @@ function showMessage (e) {
   msg.innerHTML = element.ts_message;
   msg.style.display = "block";
   if (element.ts_index > 5) {
-    msg.style.bottom = e.clientY - 15;
+    msg.style.top = e.clientY - (msg.offsetHeight + 15);
   } else {
     msg.style.top = e.clientY + 15;
   }
