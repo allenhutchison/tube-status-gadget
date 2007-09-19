@@ -1,124 +1,162 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-<ModulePrefs title="London Underground Tube Status"
-             directory_title="London Underground Tube Status"
-             render_inline="never"
-             description = "Display the current status of the London Underground"
-             author = "Allen Hutchison"
-             author_email = "allen.hutchison+tube_ig_module@gmail.com"
-             author_affiliation = "Hutchison.org"
-             author_location = "London, UK"
-             screenshot = "http://tube-status-gadget.googlecode.com/svn/trunk/tube_screenshot.jpg"
-             scaling = "true"
-             scrolling = "false"
+  <ModulePrefs
+    title="London Underground Tube Status"
+    description = "Display the current status of the London Underground"
+    author = "Allen Hutchison"
+    author_email = "allen+tubestatus@hutchison.org"
+    screenshot = "http://tube-status-gadget.googlecode.com/svn/trunk/tube_screenshot.jpg"
+    thumbnail = "http://tube-status-gadget.googlecode.com/svn/trunk/tube_thumbnail.jpg"
+    author_location = "London, UK"
+    author_affiliation = "Hutchison.org"
+    author_photo = "http://farm1.static.flickr.com/58/220888638_d245ed5c53_s.jpg"
+    author_aboutme = "Allen lives and works in London"
+    author_link = "http://allen.hutchison.org"
+    render_inline="never"
+    scaling = "true"
+    scrolling = "false"
 />
 
 <Content type="html"><![CDATA[
-<script type="text/javascript" src="http://tube-status-gadget.googlecode.com/svn/trunk/tinyxmldom.js"></script>
-<script type="text/javascript" src="http://tube-status-gadget.googlecode.com/svn/trunk/tubestatus.js"></script>
+  <script type="text/javascript" src="http://tube-status-gadget.googlecode.com/svn/trunk/tinyxmldom.js"></script>
+  <script type="text/javascript" src="http://tube-status-gadget.googlecode.com/svn/trunk/tubestatus.js"></script>
 
-<script type="text/javascript">
-var msgWindow = "message__MODULE_ID__";
-getData();
-</script>
+  <script type="text/javascript">
+    var msgWindow = "message__MODULE_ID__";
+    getData();
+  </script>
 
-<style type="text/css">
-body                    { margin:0; padding:0; border:none }
-#front__MODULE_ID__                  { background:url('http://tube-status-gadget.googlecode.com/svn/trunk/background.png'); width:202px; height:212px; }
-table                   { font:10px "London Tube", sans-serif; border:none; margin:0; padding:0; width:200px; height:191px; position:absolute; left:1px; top:10px; border-collapse:collapse }
-td                      { margin:0px; padding:0px; border:none; vertical-align:center }
-.name                   { width:100px; color:white; padding-left:3px }
-.status                 { padding-left:2px; color:#353C91 }
-#bakerloo		{ background-color: #AE6118}
-#central		{ background-color: #E41F1F}
-#circle			{ background-color: #F8D42D; color:#353C91}
-#district		{ background-color: #00A575}
-#eastlondon		{ background-color: #F2AD41; color:#353C91}
-#hammersmithandcity	{ background-color: #E899A8; color:#353C91}
-#jubilee		{ background-color: #8F989E}
-#metropolitan		{ background-color: #893267}
-#northern		{ background-color: #000000}
-#piccadilly		{ background-color: #0450A1}
-#victoria		{ background-color: #009FE0}
-#waterlooandcity	{ background-color: #70C3CE; color:#353C91}
-#dlr                    { background-color: #00BBB4; }
+  <style type="text/css">
+    body { margin:0; padding:0; border:none }
+    #front__MODULE_ID__ {
+      background:url('http://tube-status-gadget.googlecode.com/svn/trunk/background.png');
+      width:202px;
+      height:212px;
+    }
+    table {
+      font:10px "London Tube", sans-serif;
+      border:none;
+      margin:0;
+      padding:0;
+      width:200px;
+      height:191px;
+      position:absolute;
+      left:1px;
+      top:10px;
+      border-collapse:collapse
+    }
+    td {
+      margin:0px;
+      padding:0px;
+      border:none;
+      vertical-align:center
+    }
+    .name {
+      width:100px;
+      color:white;
+      padding-left:3px
+    }
+    .status {
+      padding-left:2px;
+      color:#353C91
+    }
+    #bakerloo { background-color: #AE6118}
+    #central { background-color: #E41F1F}
+    #circle { background-color: #F8D42D; color:#353C91}
+    #district { background-color: #00A575}
+    #eastlondon { background-color: #F2AD41; color:#353C91}
+    #hammersmithandcity { background-color: #E899A8; color:#353C91}
+    #jubilee { background-color: #8F989E}
+    #metropolitan { background-color: #893267}
+    #northern { background-color: #000000}
+    #piccadilly { background-color: #0450A1}
+    #victoria { background-color: #009FE0}
+    #waterlooandcity { background-color: #70C3CE; color:#353C91}
+    #dlr { background-color: #00BBB4; }
+    #message__MODULE_ID__ {
+      position:absolute;
+      font:10px "London Tube", serif;
+      padding:2px;
+      border:thin solid black;
+      background-color:#FEE;
+      display:none;
+      z-index:200;
+      left:15px;
+      width:200px;
+    }
+    .severe { color:#D60; }
+    .suspended { color:#F00; }
+    .minor { color:#600; }
+    #refresh__MODULE_ID__ {
+      font-size: 12px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
 
-#message__MODULE_ID__ { position:absolute; font:10px "London Tube", serif; padding:2px; border:thin solid black; background-color:#FEE; display:none; z-index:200; left:15px; width:200px; }
-.severe                 { color:#D60; }
-.suspended              { color:#F00; }
-.minor                  { color:#600; }
+  </style>
 
-#refresh__MODULE_ID__ {
-  font-size: 12px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
-</style>
-
-<div id="front__MODULE_ID__">
-<div id="message__MODULE_ID__"></div>
-<div id="refresh__MODULE_ID__">
-<a href="javascript:getData()">Refresh</a>
-</div>
-<table>
-  <tr>
-    <td class="name" id="bakerloo">Bakerloo</td>
-    <td class="status"  id="bakerloo.status">No Data</td>
-  </tr>
-  <tr>
-    <td class="name" id="central">Central</td>
-    <td class="status"  id="central.status">No Data</td>
-  </tr>
-  <tr>
-    <td class="name" id="circle">Circle</td>
-    <td class="status"  id="circle.status">No Data</td>
-  </tr>
-  <tr>
-    <td class="name" id="district">District</td>
-    <td class="status"  id="district.status">No Data</td>
-  </tr>
-  <tr>
-    <td class="name" id="eastlondon">East London</td>
-    <td class="status"  id="eastlondon.status">No Data</td>
-  </tr>
-  <tr>
-    <td class="name" id="hammersmithandcity">Hammersmith & City</td>
-    <td class="status"  id="hammersmithandcity.status">No Data</td>
-  </tr>
-  <tr>
-    <td class="name" id="jubilee">Jubilee</td>
-    <td class="status"  id="jubilee.status">No Data</td>
-  </tr>
-  <tr>
-    <td class="name" id="metropolitan">Metropolitan</td>
-    <td class="status"  id="metropolitan.status">No Data</td>
-  </tr>
-  <tr>
-    <td class="name" id="northern">Northern</td>
-    <td class="status"  id="northern.status">No Data</td>
-  </tr>
-  <tr>
-    <td class="name" id="piccadilly">Piccadilly</td>
-    <td class="status"  id="piccadilly.status">No Data</td>
-  </tr>
-  <tr>
-    <td class="name" id="victoria">Victoria</td>
-    <td class="status"  id="victoria.status">No Data</td>
-  </tr>
-  <tr>
-    <td class="name" id="waterlooandcity">Waterloo & City</td>
-    <td class="status"  id="waterlooandcity.status">No Data</td>
-  </tr>
-  <!--
-  <tr>
-    <td class="name" id="dlr">DLR</td>
-    <td class="status"  id="dlr.status">No Data</td>
-  </tr>
-  -->
-</table>
-</div>
-]]>
-</Content>
+  <div id="front__MODULE_ID__">
+    <div id="message__MODULE_ID__"></div>
+    <div id="refresh__MODULE_ID__">
+      <a href="javascript:getData()">Refresh</a>
+    </div>
+    <table>
+      <tr>
+        <td class="name" id="bakerloo">Bakerloo</td>
+        <td class="status"  id="bakerloo.status">No Data</td>
+      </tr>
+      <tr>
+        <td class="name" id="central">Central</td>
+        <td class="status"  id="central.status">No Data</td>
+      </tr>
+      <tr>
+        <td class="name" id="circle">Circle</td>
+        <td class="status"  id="circle.status">No Data</td>
+      </tr>
+      <tr>
+        <td class="name" id="district">District</td>
+        <td class="status"  id="district.status">No Data</td>
+      </tr>
+      <tr>
+        <td class="name" id="eastlondon">East London</td>
+        <td class="status"  id="eastlondon.status">No Data</td>
+      </tr>
+      <tr>
+        <td class="name" id="hammersmithandcity">Hammersmith & City</td>
+        <td class="status"  id="hammersmithandcity.status">No Data</td>
+      </tr>
+      <tr>
+        <td class="name" id="jubilee">Jubilee</td>
+        <td class="status"  id="jubilee.status">No Data</td>
+      </tr>
+      <tr>
+        <td class="name" id="metropolitan">Metropolitan</td>
+        <td class="status"  id="metropolitan.status">No Data</td>
+      </tr>
+      <tr>
+        <td class="name" id="northern">Northern</td>
+        <td class="status"  id="northern.status">No Data</td>
+      </tr>
+      <tr>
+        <td class="name" id="piccadilly">Piccadilly</td>
+        <td class="status"  id="piccadilly.status">No Data</td>
+      </tr>
+      <tr>
+        <td class="name" id="victoria">Victoria</td>
+        <td class="status"  id="victoria.status">No Data</td>
+      </tr>
+      <tr>
+        <td class="name" id="waterlooandcity">Waterloo & City</td>
+        <td class="status"  id="waterlooandcity.status">No Data</td>
+      </tr>
+      <!--
+        <tr>
+          <td class="name" id="dlr">DLR</td>
+          <td class="status"  id="dlr.status">No Data</td>
+        </tr>
+      -->
+    </table>
+  </div>
+]]></Content>
 </Module>
