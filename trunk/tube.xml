@@ -64,7 +64,6 @@
     #central { background-color: #E41F1F}
     #circle { background-color: #F8D42D; color:#353C91}
     #district { background-color: #00A575}
-    #eastlondon { background-color: #F2AD41; color:#353C91}
     #hammersmithandcity { background-color: #E899A8; color:#353C91}
     #jubilee { background-color: #8F989E}
     #metropolitan { background-color: #893267}
@@ -117,10 +116,6 @@
       <tr>
         <td class="name" id="district">District</td>
         <td class="status"  id="district.status">No Data</td>
-      </tr>
-      <tr>
-        <td class="name" id="eastlondon">East London</td>
-        <td class="status"  id="eastlondon.status">No Data</td>
       </tr>
       <tr>
         <td class="name" id="hammersmithandcity">Hammersmith & City</td>
