@@ -3,7 +3,7 @@
 Thanks to the author for allowing me to port his code to a google gadget.
 */
 
-var dataUrl = "http://bremford.org/widgets/tube/tube.xml?rand=" + (new Date().getTime());
+var dataUrl = " ?rand=" + (new Date().getTime());
 var lines = [ "bakerloo", "central", "circle", "district", "hammersmithandcity", "jubilee", "metropolitan", "northern", "piccadilly", "victoria", "waterlooandcity" ];
 
 function xmlError (e) {
@@ -15,6 +15,7 @@ function parseData(root) {
 
   for (var i=0;i<lines.length;i++) {
     var element = _gel(lines[i]+".status");
+    alert(element);
     element.innerHTML = "Checking...";
     element.ts_index = i;
   }
