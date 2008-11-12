@@ -15,7 +15,6 @@ function parseData(root) {
 
   for (var i=0;i<lines.length;i++) {
     var element = _gel(lines[i]+".status");
-    alert(element);
     element.innerHTML = "Checking...";
     element.ts_index = i;
   }
