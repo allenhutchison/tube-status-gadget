@@ -3,7 +3,7 @@
 Thanks to the author for allowing me to port his code to a google gadget.
 */
 
-var dataUrl = " ?rand=" + (new Date().getTime());
+var dataUrl = "http://bremford.org/widgets/tube/tube.xml?rand=" + (new Date().getTime());
 var lines = [ "bakerloo", "central", "circle", "district", "hammersmithandcity", "jubilee", "metropolitan", "northern", "piccadilly", "victoria", "waterlooandcity" ];
 
 function xmlError (e) {
