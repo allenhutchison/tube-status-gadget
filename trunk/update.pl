@@ -10,10 +10,10 @@ use XML::XPath;
 my $in = join("\n",<>);
 my $xp = XML::XPath->new(xml => $in);
 my %info;
-my $lineSet = $xp->find('//*[@id="service-board"]/dl/dt');
-my $statusSet = $xp->find('//*[@id="service-board"]/dl/dd');
+my $lineSet = $xp->find('//*[@id="service-board"]/dl[@id="lines"]/dt');
+my $statusSet = $xp->find('//*[@id="service-board"]/dl[@id="lines"]/dd');
 while ($lineSet->get_nodelist) {
-    my $line = $lineSet->pop()->findvalue('.//text()');
+    my $line = $lineSet->pop()->findvalue('.//@class');
     $line =~ s/\s+/ /g;
     $key = $line;
     $key =~ s/\s//g;
