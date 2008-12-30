@@ -1,9 +1,9 @@
-
-/* This code is based on the Mac OS X London Tube Widget found at http://bremford.org/widgets/tube/index.html
-Thanks to the author for allowing me to port his code to a google gadget.
+/* This code is based on the Mac OS X London Tube Widget found at
+http://bremford.org/widgets/tube/index.html Thanks to the author for allowing
+me to port his code to a google gadget. 
 */
 
-var dataUrl = "http://bremford.org/widgets/tube/tube.xml?rand=" + (new Date().getTime());
+var dataUrl = "http://status.severedelays.org/uk-lon/current?format=xml"
 var lines = [ "bakerloo", "central", "circle", "district", "hammersmithandcity", "jubilee", "metropolitan", "northern", "piccadilly", "victoria", "waterlooandcity" ];
 
 function xmlError (e) {
