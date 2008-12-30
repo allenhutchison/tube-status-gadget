@@ -74,5 +74,5 @@ function hideMessage () {
 }
 
 function getData() {
-  _IG_FetchContent(dataUrl, parseData);
+  _IG_FetchContent(dataUrl, parseData, {refreshInterval: (60 * 5)});
 }
